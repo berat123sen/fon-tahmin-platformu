@@ -14,6 +14,7 @@ DB_PATH = os.path.join(DB_DIR, "fon_data.db")
 
 # Default Turkish mutual funds for the platform
 DEFAULT_FUNDS = {
+    # Mevcut Fonlar (Teknoloji, Hisse, Tematik)
     "AFT": "Ak Portföy Yeni Teknolojiler Yabancı Hisse Senedi Fonu",
     "TTE": "İş Portföy BIST Teknoloji Ağırlıklı Sınırlı Hisse Senedi Fonu",
     "TI3": "İş Portföy BIST 30 Dışı Şirketler Hisse Senedi Fonu",
@@ -22,7 +23,26 @@ DEFAULT_FUNDS = {
     "IIH": "İstanbul Portföy Üçüncü Hisse Senedi Fonu (Hisse Yoğun)",
     "OLD": "QNB Portföy Temiz Enerji ve Su Fon Sepeti Fonu",
     "GMR": "Inveo Portföy Hisse Senedi Fonu (Hisse Yoğun)",
-    "IPG": "İş Portföy Elektrikli Araçlar Karma Fonu"
+    "IPG": "İş Portföy Elektrikli Araçlar Karma Fonu",
+    
+    # Altın & Kıymetli Madenler
+    "GGK": "Garanti Portföy Altın Fonu",
+    "TCA": "Ziraat Portföy Altın Katılım Fonu",
+    
+    # Döviz & Eurobond
+    "DBH": "Deniz Portföy Eurobond Döviz Borçlanma Araçları Fonu",
+    "FUB": "Fiba Portföy Eurobond (Borçlanma Araçları) Fonu",
+    
+    # BIST Aktif Hisse & Tematik
+    "OPH": "Osmanlı Portföy Birinci Hisse Senedi Fonu (Hisse Yoğun)",
+    "GBG": "Garanti Portföy Yabancı Teknoloji Sektörü Hisse Senedi Fonu",
+    "IVY": "İstanbul Portföy Blockchain Teknolojileri Karma Fon",
+    "IJC": "İş Portföy Sağlık Sektörü Yabancı Hisse Senedi Fonu",
+    "ADP": "Ak Portföy BIST 100 Dışı Şirketler Hisse Senedi Fonu",
+    
+    # Para Piyasası (Düşük Risk)
+    "PPZ": "Azimut Portföy Para Piyasası Fonu",
+    "FIL": "Fiba Portföy Para Piyasası Fonu"
 }
 
 # RSS / News scraping urls

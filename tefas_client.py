@@ -91,7 +91,19 @@ class TefasClient:
             "IIH": 7.40,      # İstanbul Portföy
             "OLD": 3.10,      # Temiz Enerji
             "GMR": 5.80,      # Inveo
-            "IPG": 0.42       # Elektrikli Araçlar
+            "IPG": 0.42,      # Elektrikli Araçlar
+            # Yeni eklenen fonlar
+            "GGK": 12.40,     # Garanti Altın
+            "TCA": 8.90,      # Ziraat Altın Katılım
+            "DBH": 110.50,    # Deniz Eurobond
+            "FUB": 85.20,     # Fiba Eurobond
+            "OPH": 18.50,     # Osmanlı Hisse
+            "GBG": 0.28,      # Garanti Yabancı Teknoloji
+            "IVY": 1.15,      # İstanbul Blockchain
+            "IJC": 0.55,      # İş Sağlık Yabancı
+            "ADP": 6.80,      # Ak BIST 100 Dışı
+            "PPZ": 4.50,      # Azimut Para Piyasası
+            "FIL": 3.80       # Fiba Para Piyasası
         }
         
         # Annualized drift (mu) and volatility (sigma) parameters based on real fund profiles
@@ -104,7 +116,19 @@ class TefasClient:
             "IIH": (0.36, 0.23),
             "OLD": (0.30, 0.26),
             "GMR": (0.35, 0.27),
-            "IPG": (0.28, 0.25)
+            "IPG": (0.28, 0.25),
+            # Yeni eklenen fonlar
+            "GGK": (0.25, 0.18),   # Altın fonu orta getiri, düşük-orta volatilite
+            "TCA": (0.24, 0.18),
+            "DBH": (0.18, 0.15),   # Eurobond
+            "FUB": (0.19, 0.15),
+            "OPH": (0.44, 0.24),   # Osmanlı hisse yüksek getiri, yüksek volatilite
+            "GBG": (0.32, 0.27),   # Yabancı Teknoloji
+            "IVY": (0.35, 0.30),   # Blockchain (yüksek volatilite)
+            "IJC": (0.28, 0.23),   # Sağlık sektörü
+            "ADP": (0.42, 0.26),   # BIST 100 Dışı
+            "PPZ": (0.45, 0.015),  # Para piyasası stabil yüksek TL faiz getirisi, çok düşük volatilite
+            "FIL": (0.44, 0.015)
         }
         
         s0 = base_prices.get(fund_code, 10.0)

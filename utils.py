@@ -34,21 +34,24 @@ def portfolio_recommendation(budget, risk_tolerance, predictions, accuracies):
     
     profiles = {
         "Düşük": {
-            "YAS": 0.40,  # Koç Holding (Defensive Bluechip)
-            "MAC": 0.30,  # Marmara Capital (Experienced Value)
-            "IIH": 0.30   # İstanbul Portföy (Active Equity)
+            "YAS": 0.30,  # Koç Holding (Defensive Bluechip)
+            "MAC": 0.25,  # Marmara Capital (Experienced Value)
+            "GGK": 0.25,  # Altın (Garanti Altın)
+            "PPZ": 0.20   # Para Piyasası (Azimut Para Piyasası)
         },
         "Orta": {
-            "AFT": 0.30,  # NASDAQ Tech (Global Tech)
-            "TTE": 0.25,  # BIST Tech (Local Tech)
-            "YAS": 0.25,  # Koç Holding (Defensive Bluechip)
-            "OLD": 0.20   # Clean Energy (Thematic)
+            "AFT": 0.25,  # NASDAQ Tech (Global Tech)
+            "TTE": 0.20,  # BIST Tech (Local Tech)
+            "YAS": 0.20,  # Koç Holding
+            "OLD": 0.15,  # Temiz Enerji
+            "DBH": 0.20   # Eurobond (Döviz cinsi)
         },
         "Yüksek": {
-            "TTE": 0.35,  # BIST Tech (High Beta Tech)
-            "AFT": 0.25,  # NASDAQ Tech (Global Tech Growth)
-            "TI3": 0.20,  # BIST 30 Dışı (Small Cap Growth)
-            "IPG": 0.20   # Electric Vehicles (Thematic Beta)
+            "TTE": 0.30,  # BIST Tech (High Beta)
+            "GBG": 0.20,  # Yabancı Teknoloji (Garanti)
+            "OPH": 0.20,  # Osmanlı Hisse (Yüksek Beta)
+            "IVY": 0.15,  # Blockchain (Karma)
+            "TI3": 0.15   # BIST 30 Dışı (Büyüme)
         }
     }
     

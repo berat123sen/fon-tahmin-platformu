@@ -96,6 +96,37 @@ st.markdown("""
             background-color: #1e293b !important;
             color: #f8fafc !important;
         }
+        
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            /* Force Streamlit columns to collapse and stack vertically on mobile */
+            [data-testid="column"] {
+                width: 100% !important;
+                flex: 1 1 100% !important;
+                min-width: 100% !important;
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+                margin-bottom: 20px !important;
+            }
+            /* Adjust top glowing cards for mobile spacing */
+            .glow-card {
+                padding: 15px !important;
+                margin-bottom: 10px !important;
+            }
+            .card-value {
+                font-size: 22px !important;
+            }
+            /* Make text smaller on mobile to prevent overflow */
+            h1 {
+                font-size: 24px !important;
+            }
+            h2 {
+                font-size: 20px !important;
+            }
+            h3 {
+                font-size: 18px !important;
+            }
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -257,7 +288,7 @@ st.markdown("<h1 style='text-align: center; margin-bottom: 5px; color: #f8fafc;'
 st.markdown("<p style='text-align: center; color: #94a3b8; font-size: 16px; margin-bottom: 30px;'>Türkiye TEFAS Fonları için Sayısal Trend Analizi ve Gemini Yapay Zeka Haber Sentiment Entegrasyonu</p>", unsafe_allow_html=True)
 
 # Top Cards
-col_card1, col_card2, col_card3 = st.columns(3)
+col_card1, col_card2, col_card3 = st.columns(3, gap="small")
 
 # Find top performing fund by prediction
 top_perf_code = "N/A"
@@ -312,7 +343,7 @@ with col_card3:
     """, unsafe_allow_html=True)
 
 # Main Grid (Fund List & Details)
-col_left, col_right = st.columns([2, 3])
+col_left, col_right = st.columns([2, 3], gap="small")
 
 with col_left:
     st.markdown("### 📋 Takip Listesi ve AI Tahminleri")
@@ -348,6 +379,34 @@ with col_left:
         
     df_table = pd.DataFrame(table_data)
     
+    # Sorting selector
+    sort_option = st.selectbox(
+        "🔀 Listeyi Sırala:",
+        options=[
+            "Varsayılan (Kod Sıralı)",
+            "Fon Adı (A-Z)",
+            "Son Fiyat (En Yüksek)",
+            "Son 1 Haftalık Getiri (En Yüksek)",
+            "Duygu Skoru (En Yüksek)",
+            "2 Haftalık AI Tahmini (En Yüksek)",
+            "Tahmin Başarısı (En Yüksek)"
+        ]
+    )
+    
+    # Sort DataFrame based on selection
+    if sort_option == "Fon Adı (A-Z)":
+        df_table = df_table.sort_values(by="Fon Adı", ascending=True)
+    elif sort_option == "Son Fiyat (En Yüksek)":
+        df_table = df_table.sort_values(by="Son Fiyat (TL)", ascending=False)
+    elif sort_option == "Son 1 Haftalık Getiri (En Yüksek)":
+        df_table = df_table.sort_values(by="Son 1 Haftalık Getiri", ascending=False)
+    elif sort_option == "Duygu Skoru (En Yüksek)":
+        df_table = df_table.sort_values(by="Duygu Skoru (AI)", ascending=False)
+    elif sort_option == "2 Haftalık AI Tahmini (En Yüksek)":
+        df_table = df_table.sort_values(by="2 Haftalık AI Tahmini", ascending=False)
+    elif sort_option == "Tahmin Başarısı (En Yüksek)":
+        df_table = df_table.sort_values(by="Tahmin Başarısı", ascending=False, na_position='last')
+        
     # Let user select the active fund via a dropdown
     selected_fund_code = st.selectbox(
         "🔍 Detaylarını İncelemek İstediğiniz Fonu Seçin:",
@@ -419,7 +478,7 @@ with col_right:
 
 # Secondary Panel: Haber Duygusu ve Simülatör
 st.markdown("---")
-col_bot_left, col_bot_right = st.columns([1, 1])
+col_bot_left, col_bot_right = st.columns([1, 1], gap="small")
 
 with col_bot_left:
     st.markdown(f"### 📰 Son Finansal Haberler ve Sentiment Analizleri ({selected_fund_code})")
@@ -449,7 +508,7 @@ with col_bot_right:
     st.markdown("### 🧮 Akıllı Kâr ve Portföy Simülatörü")
     st.markdown("Yatırım bütçenizi ve risk tercihinizi girin, AI motorumuz en iyi başarı oranına ve getiriye sahip fon sepetini simüle etsin.")
     
-    sim_col1, sim_col2 = st.columns(2)
+    sim_col1, sim_col2 = st.columns(2, gap="small")
     with sim_col1:
         budget_input = st.number_input("Yatırım Miktarı (TL):", min_value=1000, max_value=10000000, value=50000, step=1000)
     with sim_col2:
